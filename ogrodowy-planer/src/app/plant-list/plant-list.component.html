@@ -1,1 +1,5 @@
-<p>plant-list works!</p>
+
+<div *ngFor="let plant of plants; let i = index">
+    <h3>{{ plant.name }}</h3>
+    <p>Type: {{ plant.description }}</p>
+</div>
