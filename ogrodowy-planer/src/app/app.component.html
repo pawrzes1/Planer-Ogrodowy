@@ -1,6 +1,19 @@
 <!-- Nagłówek aplikacji -->
-<h1>{{ title }}</h1>
-<p>Witaj w Ogrodowym Planerze! To aplikacja, która pomoże Ci zaplanować Twój ogród.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div>
+      <a class="nav-link d-inline me-2" routerLink="/">Lista roślin</a>
+      <a class="nav-link d-inline me-2" routerLink="/dodaj">Dodaj roślinę</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h1>{{ title }}</h1>
+  <p>Witaj w Ogrodowym Planerze! To aplikacja, która pomoże Ci zaplanować Twój ogród.</p>
+  <br><br><br>
+ 
 
 <!-- Tu wstawiamy widoki routingu -->
 <router-outlet></router-outlet>
+</div>
