@@ -1,2 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    transition: background-color 0.7s ease, color 1.0s ease;
+}
 
+
+body.dark-mode{
+    background-color: #121212;
+    color: #e0d0d0;
+}
+
+body.dark-mode .card{
+    background-color: #1e1e1e;
+    color: #e0d0d0;
+}  
+
+body.dark-mode .list-group-item{
+    background-color: #1e1e1e;
+    color: #e0d0d0;
+}
+
+body.dark-mode .navbar-light{
+    background-color: #1e1e1e;
+    color: #e0d0d0;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+    background-color: #2a2a2a;
+    color: #f5f5f5;
+    border: 1px solid #555;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus{
+    background-color: #333;
+    color: #e0d0d0;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder{
+    color: #aaa;
+}

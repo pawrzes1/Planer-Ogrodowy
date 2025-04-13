@@ -4,6 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Plant, PlantListComponent } from '../plant-list/plant-list.component';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid'; // Importuj uuidv4 z uuid
 
 @Component({
   selector: 'app-add-plant',
@@ -18,9 +19,30 @@ export class AddPlantComponent {
   plant = {
     name: '',
     description: '',
-
   };
 
+  // Lista roślin
+  plants: Plant[] = [];
+
+  addPlant() {
+    // Dodaj roślinę do listy roślin
+    const stored = localStorage.getItem('plants');
+    const plants = stored ? JSON.parse(stored) : [];
+    
+    
+    const newPlant: Plant = {
+      id: uuidv4(), // Generowanie unikalnego ID dla rośliny
+      name: this.plant.name,
+      description: this.plant.description,
+    };
+
+    plants.push(newPlant); // Dodaj nową roślinę do tablicy
+    localStorage.setItem('plants', JSON.stringify(plants)); // Zapisz zaktualizowaną tablicę roślin w localStorage 
+
+    this.router.navigate(['/']); // Przekierowanie do listy roślin po dodaniu
+  } 
+
+  
   onSubmit(form: NgForm){
     if (this.plant.name && this.plant.description) {
       // Zapisz roślinę do localStorage
@@ -38,6 +60,7 @@ export class AddPlantComponent {
       console.log('Form is invalid');
     }
   }
+
 }
 
 

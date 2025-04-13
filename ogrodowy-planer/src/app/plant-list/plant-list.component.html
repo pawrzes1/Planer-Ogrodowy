@@ -1,24 +1,33 @@
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg g-4">
-    <div class="col " *ngFor="let plant of plants; let i = index">
-        <div class="list-group-item mb-2 list-group-item-action flex-column align-items-start">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <i class="bi bi-flower1 me-2"></i>
-                        {{ plant.name }}
-                    </h5>
-                    <p class="card-text">Type: {{ plant.description }}</p>
-                    <button type="button" class="btn btn-danger" (click)="deletePlant(plant.id)">
-                        <i class="bi bi-trash"></i> Usuń
-                    </button>
-                
+    <div *ngIf="plants.length > 0; else noPlants" class="col">  
+        <div class="col " *ngFor="let plant of plants; let i = index">
+            <div class="list-group-item mb-2 list-group-item-action flex-column align-items-start">
+                <div class="card h-100">
+                    <div class="card-body">
+                        
+                        <h5 class="card-title">
+                            <i class="bi bi-flower1 me-2"></i>
+                            {{ plant.name }}
+                        </h5>
+                        
+                        <p class="card-text">Opis: {{ plant.description }}</p>
+                        
+                        <button type="button" class="btn btn-danger" (click)="deletePlant(i)">
+                            <i class="bi bi-trash"></i> Usuń
+                        </button>
+                    
+                    </div>
                 </div>
             </div>
         </div>
-
-        
     </div>
 </div>
+
+<button class="btn btn-warning mb-3" (click)="resetPlants()">
+    <i class="bi bi-arrow-clockwise"></i> Resetuj rośliny
+</button>
+
+
 <ng-template #noPlants>
     <div class="alert alert-info" role="alert">
         <i class="bi bi-exclamation-triangle"></i> Brak roślin do wyświetlenia.
