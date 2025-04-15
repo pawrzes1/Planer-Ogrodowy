@@ -44,3 +44,11 @@ body.dark-mode input::placeholder,
 body.dark-mode textarea::placeholder{
     color: #aaa;
 }
+
+input,
+textarea,
+button,
+.card {
+    transition: background-color 0.7s ease, color 1.0s ease, border-color 0.7s ease;
+    border-radius: 0.5rem;
+}

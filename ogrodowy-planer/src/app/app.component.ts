@@ -10,18 +10,19 @@ import { RouterModule, RouterOutlet, Router } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  title = 'Planer Ogrodowy';
+  title = 'Planer Ogrodowy'; //Tytuł aplikacji
   isDarkMode = false; // Flaga do przechowywania stanu trybu ciemnego
 
-  constructor() {
-    
-  }
 
+  // Metoda do aktualizacji motywu na podstawie stanu trybu ciemnego
+  // Dodaje lub usuwa klasę dark-mode z body
   updateTheme() {
     document.body.classList.toggle('dark-mode', this.isDarkMode); // Dodanie lub usunięcie klasy dark-mode
   }
 
-  toggleTheme(){
+  // Metoda do przełączania trybu ciemnego
+  // Zmienia stan trybu ciemnego i aktualizuje motyw
+  toggleDarkTheme(): void{
     
     this.isDarkMode = !this.isDarkMode; // Pobranie aktualnego stanu trybu ciemnego
     this.updateTheme(); // Ustawienie motywu na podstawie stanu
@@ -30,6 +31,8 @@ export class AppComponent implements OnInit {
    
   }
 
+  // Inicjalizacja komponentu
+  // Ustawienie stanu trybu ciemnego na podstawie localStorage
   ngOnInit(){
     const savedTheme = localStorage.getItem('theme');
     this.isDarkMode = savedTheme === 'dark'; // Ustawienie stanu trybu ciemnego na podstawie localStorage

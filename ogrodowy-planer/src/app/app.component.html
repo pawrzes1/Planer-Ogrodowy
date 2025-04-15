@@ -1,19 +1,24 @@
-<!-- Nagłówek aplikacji -->
+<!-- Pasek nawigacyjny z tytułem aplikacji i przyciskiem trybu ciemnego-->
 <nav class="navbar navbar-expand-lg navbar-light">
   
+  <!--Tytuł aplikacji-->
   <div class="d-flex flex-grow-1 align-items-center">
     
+    <!--Linki nawigacyjne-->
+    <!--Link do listy roślin-->
       <a class="btn btn-success ms-5 me-2" 
           routerLink="/"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
           >Lista roślin</a>
+    <!--Link do dodawania rośliny-->
       <a class="btn btn-success me-2" 
           routerLink="/dodaj"
           routerLinkActive="active"
           >Dodaj roślinę</a>
     
-      <button class="btn btn-outline-secondary ms-auto" type="button" (click)="toggleTheme()">
+    <!--Przycisk przełączenia trybu ciemnego-->
+      <button class="btn btn-outline-secondary ms-auto" type="button" (click)="toggleDarkTheme()">
         <i class="bi bi-moon-stars"></i>
         {{ isDarkMode ? 'Jasny motyw' : 'Ciemny motyw' }}
       </button>
@@ -27,6 +32,6 @@
   <br><br><br>
  
 
-<!-- Tu wstawiamy widoki routingu -->
+<!-- Miejsce wyświetlania komponentów w zależności od trasy routingu -->
 <router-outlet></router-outlet>
 </div>
